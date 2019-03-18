@@ -1,0 +1,14 @@
+#train-table th,
+    td {
+      display: inline-block;
+      width: 16.575%;
+    }
+.jumbotron{
+    background: brown;
+    color: #fff;
+}
+
+.card-header {
+    background: #2c2ce9;
+    color: #fff;
+}
