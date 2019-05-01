@@ -49,11 +49,11 @@ $("#first-train-input").val("");
 $("#frequency-input").val("");
 });
 
-database.ref().on("child_added",function(childSnapshot){
-var trainName = childSnapshot.val().name;
-var trainDestination = childSnapshot.val().destination;
-var trainTime = childSnapshot.val().time;
-var trainFrequency = childSnapshot.val().frequency;
+database.ref().on("child_added",function(snapshot){
+var trainName = snapshot.val().name;
+var trainDestination = snapshot.val().destination;
+var trainTime = snapshot.val().time;
+var trainFrequency = snapshot.val().frequency;
 
 
 console.log(trainName);
@@ -65,13 +65,13 @@ console.log(trainFrequency);
  
  
  
- var trainFrequency = 15;
+
 
  
- var firstTime = "03:30";
+ 
 
  
- var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+ var firstTimeConverted = moment(trainTime, "hh:mm").subtract(1, "years");
  console.log(firstTimeConverted);
 
  
@@ -95,12 +95,11 @@ console.log(trainFrequency);
  console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm"));
 
  var newRow = $("<tr>").append(
-  $("<th>").text(trainName),
-  $("<th>").text(trainDestination),
-  $("<th>").text(trainTime),
-  $("<th>").text(trainFrequency),
-  $("<th>").text(nextArrival),
-  $("<th>").text(minutesAway)
+  $("<td>").text(trainName),
+  $("<td>").text(trainDestination),
+  $("<td>").text(trainFrequency),
+  $("<td>").text(nextArrival),
+  $("<td>").text(minutesAway)
 
 );
 
